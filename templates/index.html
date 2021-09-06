@@ -1,0 +1,32 @@
+<!--index.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">Номер</th>
+    <th scope="col">Дата</th>
+    <th scope="col">Куда</th>
+    <th scope="col">Краткое содержание</th>
+    <th scope="col">Исполнитель</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+  <!--Loop over the `payload` variable, which is the list of articles-->
+  {{range .payload }}
+    <!--Create the link for the article based on its ID-->
+   <th scope="col"><a href="/article/view/{{.ID}}">{{.Number}}</a></th>
+   <th scope="col">{{.Date}}</th>
+   <th scope="col">{{.Title}}</th>
+   <th scope="col">{{.Content}}</th>
+   <th scope="col"></th>
+  </tr>
+  {{end}}
+
+
+</table>
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}
